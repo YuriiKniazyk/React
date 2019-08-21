@@ -4,3 +4,9 @@
     background-color: whitesmoke;
     margin: 0 auto;
 }
+
+.cont{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}

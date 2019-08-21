@@ -5,7 +5,8 @@ class Card extends Component{
 
     state = {
         showContent: true,
-        inputvalue: ''
+        inputvalue: '',
+        inputContent: false
     }
 
     onToogleContent = () =>{
@@ -20,12 +21,12 @@ class Card extends Component{
 
     onCreate = () =>{
         this.props.onCreate(this.state.inputvalue);
-       this.setState({inputvalue: ''});
+       this.setState({inputvalue: '', inputContent: false});
         
     }
 
     ChangeInput = (e) =>{
-       this.setState({inputvalue: e.target.value});
+       this.setState({inputvalue: e.target.value, inputContent: true});
     }
 
     render(){    
@@ -39,9 +40,13 @@ class Card extends Component{
                     <button onClick = {this.onToogleContent}>Hide/Show</button>
                     <button onClick = {this.onDeleteCard}>Delete</button>
                 </div>
-                
+                <div>
                     <input type='text' value={this.state.inputvalue} onChange={this.ChangeInput}/>
-                    <input type='button' value='Create' onClick={this.onCreate} />                             
+                    <input type='button' value='Create' onClick={this.onCreate} /> 
+                </div> 
+                <div>
+                    {this.state.inputContent && <div className='cont'>Yooho</div>}
+                </div>                           
             </div>
         )
     }
