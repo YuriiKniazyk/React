@@ -18,6 +18,7 @@ class App extends Component {
   }
 
   onClickdec100 = ()=>{
+    if(this.state.count - 1 < 0) return 
     this.setState((state) => (
      {count: state.count - 100}));
   }
